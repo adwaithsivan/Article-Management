@@ -3,15 +3,21 @@ const mongoose = require('mongoose')
 const Article = require('./models/articleModel')
 const app = express()
 
+app.use(express.json())
 //routes
 app.get('/', (req,res) => {
     res.send('Hello')
 })
 
+app.get('/articles', (req,res) => {
+  res.send("articles")
+})
+
 // Create New Article
 app.post('/articles', async (req, res) => {
+
     try {
-      const article = new Article(req.body);
+      const article = new Article.create(req.body);
       const savedArticle = await article.save();
       res.status(201).json(savedArticle);
     } catch (error) {
@@ -78,7 +84,7 @@ app.delete('/articles/:articleID', async (req, res) => {
 app.listen(3001, () => {
     console.log('App listening to port 3001')
 })
-mongoose.connect("mongodb+srv://adwaithsivan007:adwaith1234@articleapi.j71qzxb.mongodb.net/Article-API?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://adwaithsivan007:adwaith1234@articleapi.j71qzxb.mongodb.net/articles")
 .then(() => {
     console.log('connected to MongoDB')
 }).catch((error) => {
