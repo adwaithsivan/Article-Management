@@ -75,15 +75,12 @@ app.delete('/articles/:articleID', async (req, res) => {
   
 
 
-app.listen(3000, () => {
-    console.log('App listening to port 3000')
+app.listen(3001, () => {
+    console.log('App listening to port 3001')
 })
 mongoose.connect("mongodb+srv://adwaithsivan007:adwaith1234@articleapi.j71qzxb.mongodb.net/Article-API?retryWrites=true&w=majority")
 .then(() => {
     console.log('connected to MongoDB')
-    app.listen(3000, ()=> {
-        console.log(`Node API app is running on port 3000`)
-    });
 }).catch((error) => {
     console.log(error)
 })
