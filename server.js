@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Product = require('./models/articleModel')
+const Article = require('./models/articleModel')
 const app = express()
 
 //routes
@@ -75,8 +75,8 @@ app.delete('/articles/:articleID', async (req, res) => {
   
 
 
-app.listen(3001, () => {
-    console.log('App listening to port 3001')
+app.listen(3000, () => {
+    console.log('App listening to port 3000')
 })
 mongoose.connect("mongodb+srv://adwaithsivan007:adwaith1234@articleapi.j71qzxb.mongodb.net/Article-API?retryWrites=true&w=majority")
 .then(() => {
