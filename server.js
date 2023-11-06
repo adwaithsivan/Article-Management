@@ -9,10 +9,6 @@ app.get('/', (req,res) => {
     res.send('Hello')
 })
 
-app.get('/articles', (req,res) => {
-  res.send("articles")
-})
-
 // Create New Article
 app.post('/articles', async (req, res) => {
 
@@ -84,7 +80,8 @@ app.delete('/articles/:articleID', async (req, res) => {
 app.listen(3001, () => {
     console.log('App listening to port 3001')
 })
-mongoose.connect("mongodb+srv://adwaithsivan007:adwaith1234@articleapi.j71qzxb.mongodb.net/articles")
+mongoose.
+connect("mongodb+srv://adwaithsivan007:adwaith1234@articleapi.j71qzxb.mongodb.net/Article-API?retryWrites=true&w=majority")
 .then(() => {
     console.log('connected to MongoDB')
 }).catch((error) => {
